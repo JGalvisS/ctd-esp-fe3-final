@@ -9,6 +9,7 @@ import { useContextGlobal } from '../Components/utils/global.context'
 const Home = () => {
 
   const {state} = useContextGlobal()
+  
   return (
     <main className="" >
       <h1>Home</h1>

@@ -6,5 +6,7 @@ export const reducer = (state,action)=>{
             return{...state, dentistDetail: action.payload}
         case 'ADD_FAV':
             return{...state, favorito: [...state.favorito, action.payload]}
+        case 'CHANGE_THEME':
+            return{...state, theme: action.payload}
     }
 }

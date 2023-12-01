@@ -2,11 +2,12 @@ import { createContext, useContext, useEffect, useReducer } from "react";
 import axios from "axios";
 import {reducer} from"./reducer"
 
-//*en esta inicial state estaba antes esto theme: "",
+
 const initialState = { 
   list: [],
   dentistDetail: [],
-  favorito:  JSON.parse(localStorage.getItem('favorito')) || []
+  favorito:  JSON.parse(localStorage.getItem('favorito')) || [],
+  theme: "light"
 }
 
 const ContextGlobal = createContext();
@@ -14,7 +15,7 @@ const ContextGlobal = createContext();
 export const ContextProvider = ({ children }) => {
   //Aqui deberan implementar la logica propia del Context, utilizando el hook useMemo
   const [state, dispatch]= useReducer(reducer,initialState)
-  const {list, favorito} = state
+  const {list, favorito,theme} = state
   console.log(state)
   
   const url = "https://jsonplaceholder.typicode.com/users"
@@ -32,7 +33,7 @@ export const ContextProvider = ({ children }) => {
 }, [state.favorito])
 
   return (
-    <ContextGlobal.Provider value={{list,favorito,state, dispatch}}>
+    <ContextGlobal.Provider value={{theme,list,favorito,state, dispatch}}>
       {children}
     </ContextGlobal.Provider>
   );
