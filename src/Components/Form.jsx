@@ -46,7 +46,6 @@ const Form = () => {
       null
       }
       {error && <h4>Verifica que los datos sean correctos</h4>}
-
     </div>
   );
 };
