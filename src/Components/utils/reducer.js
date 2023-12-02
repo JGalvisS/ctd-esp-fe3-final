@@ -9,5 +9,9 @@ export const reducer = (state,action)=>{
             return{...state, favorito: [...state.favorito, action.payload]}
         case 'CHANGE_THEME':
             return{...state, theme: action.payload}
+        case 'DELETE_ONE_FAV':
+            return {...state, favorito: action.payload}
+        case 'DELETE_FAVS':
+            return {...state, favorito: []}
     }
 }

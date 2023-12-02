@@ -6,11 +6,12 @@ import { useContextGlobal } from '../Components/utils/global.context'
 
 const Favs = () => {
 
-  const {favorito}=useContextGlobal()
+  const {favorito, dispatch}=useContextGlobal()
 
   return (
     <>
       <h1>Desntistas Favoritos</h1>
+      <button onClick={()=>dispatch({type:'DELETE_FAVS'} )} className="favButton">Elminar favoritos</button>
       <div className="card-grid">
         {/* este componente debe consumir los destacados del localStorage */}
         {favorito.map(fav => <Card dentist={fav} key={fav.id}/>)}

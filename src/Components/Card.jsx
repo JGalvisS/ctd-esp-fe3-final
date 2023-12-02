@@ -12,7 +12,8 @@ const Card = ({ dentist }) => {
   const addFav = () => {
      // Aqui iria la logica para agregar la Card en el localStorage
     if(findFav){
-      alert('Ese personaje ya está agregado a favoritos')
+     const filter= favorito.filter((fav)=> fav.id !== dentist.id)
+     dispatch({type: 'DELETE_ONE_FAV', payload: filter})
     } else {
       dispatch({type: 'ADD_FAV', payload: dentist})
     }
