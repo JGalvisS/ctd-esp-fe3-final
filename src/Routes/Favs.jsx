@@ -10,7 +10,7 @@ const Favs = () => {
 
   return (
     <>
-      <h1>Dentists Favs</h1>
+      <h1>Desntistas Favoritos</h1>
       <div className="card-grid">
         {/* este componente debe consumir los destacados del localStorage */}
         {favorito.map(fav => <Card dentist={fav} key={fav.id}/>)}

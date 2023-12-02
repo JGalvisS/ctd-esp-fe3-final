@@ -9,7 +9,7 @@ const Form = () => {
   const[paciente, setPaciente] = useState({
     nombre: '',
     email: '',
-    contrasena: ''
+    solicitud: ''
   })
   //*States para validaciones correctas e incorrectas 
   const[show, setShow]= useState(false)
@@ -20,7 +20,7 @@ const Form = () => {
     event.preventDefault()
     if(paciente.nombre.length>3 && paciente.nombre != null&&
       paciente.email.length>8 && paciente.email != null && !paciente.email.includes(' ')&&
-      paciente.contrasena.length>6 && paciente.contrasena != null && !paciente.contrasena.includes(' ')){
+      paciente.solicitud.length>20 && paciente.solicitud != null ){
         setShow(true)
         setError(false)
       }else{setError(true)}
@@ -34,10 +34,10 @@ const Form = () => {
         <input type="text" value = {paciente.nombre} onChange={(e)=> {setPaciente({...paciente, nombre: e.target.value.trimStart()})}} />
         <label>Email</label>
         <input type="email"value = {paciente.email} onChange={(e)=> {setPaciente({...paciente, email: e.target.value.trimStart()})}} />
-        <label >Contraseña</label>
-        <input type="password" value = {paciente.contrasena} onChange={(e)=> {setPaciente({...paciente, contrasena: e.target.value.trimStart()})}}/>
+        <label htmlFor="story">Solicitud</label>
+        <textarea name="story" id="story" cols="30" rows="10" value= {paciente.solicitud} onChange={(e)=> {setPaciente({...paciente, solicitud: e.target.value.trimStart()})}}></textarea>
         <br />
-        <button>Enviar</button>
+        <button className="favButton">Enviar</button>
       </form>
       }
       {show ?
@@ -45,7 +45,7 @@ const Form = () => {
       :
       null
       }
-      {error && <h5>Verifica que los datos sean correctos</h5>}
+      {error && <h4>Verifica que los datos sean correctos</h4>}
 
     </div>
   );
